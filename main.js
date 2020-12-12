@@ -25,4 +25,3 @@ function turnCar(event) {
 
 
 document.addEventListener('keydown', turnCar);
-// ArrowRight ArrowLeft ArrowDown ShiftRight

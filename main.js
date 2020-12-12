@@ -1,10 +1,10 @@
 var car = document.querySelector('img');
 
 var carDirectionData = {
-  north: 'north',
-  south: 'south',
-  west: 'west',
-  east: 'east'
+  directionTop: 'north',
+  directionBottom: 'south',
+  directionLeft: 'west',
+  directionRight: 'east'
 }
 
 function turnCar(event) {
@@ -16,8 +16,6 @@ function turnCar(event) {
     car.className = 'west';
   } else if (event.code === "ArrowRight") {
     car.className = "east";
-  } else {
-    return;
   }
 }
 

@@ -20,5 +20,4 @@ function turnCar(event) {
   }
 }
 
-
 document.addEventListener('keydown', turnCar);

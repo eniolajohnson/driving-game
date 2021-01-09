@@ -8,7 +8,11 @@ var carDirectionData = {
   }
 }
 
-function turnCar(e) {
+var left = 0;
+
+var intervalId = null;
+
+function playGame(e) {
   if (e.code === "ArrowUp") {
     car.className = 'north';
     carDirectionData.direction = 'north';
@@ -22,7 +26,13 @@ function turnCar(e) {
     car.className = "east";
     carDirectionData.direction = 'east';
   }
-  if (e.code === "ArrowRight")
+  if (e.code === "Space"){
+    var intervalId = setInterval(() => {
+      left += 16;
+      car.style.left = left + 'px';
+      carDirectionData.location.x = left;
+    }, 30)
+  }
 }
 
-document.addEventListener('keydown', turnCar);
+document.addEventListener('keydown', playGame);

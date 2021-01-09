@@ -1,23 +1,28 @@
 var car = document.querySelector('img');
 
 var carDirectionData = {
-  direction: 'east'
+  direction: 'east',
+  location: {
+    x: 0,
+    y: 0
+  }
 }
 
-function turnCar(event) {
-  if (event.code === "ArrowUp") {
+function turnCar(e) {
+  if (e.code === "ArrowUp") {
     car.className = 'north';
     carDirectionData.direction = 'north';
-  } else if (event.code === "ArrowDown") {
+  } else if (e.code === "ArrowDown") {
     car.className = 'south';
     carDirectionData.direction = 'south';
-  } else if (event.code === "ArrowLeft") {
+  } else if (e.code === "ArrowLeft") {
     car.className = 'west';
     carDirectionData.direction = 'west';
-  } else if (event.code === "ArrowRight") {
+  } else if (e.code === "ArrowRight") {
     car.className = "east";
     carDirectionData.direction = 'east';
   }
+  if (e.code === "ArrowRight")
 }
 
 document.addEventListener('keydown', turnCar);

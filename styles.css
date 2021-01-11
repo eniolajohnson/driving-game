@@ -2,8 +2,13 @@ body {
   background-color: green;
 }
 
+.container{
+  position: relative;
+}
+
 .container img {
-  width: 15%;
+  width: 10%;
+  position: absolute;
 }
 
 .north {

@@ -5,14 +5,15 @@ var carDirectionData = {
   location: {
     x: 0,
     y: 0
-  }
+  },
+  start: false
 }
 
 var left = 0;
 
 var intervalId = null;
 
-function playGame(e) {
+function carMove(e) {
   if (e.code === "ArrowUp") {
     car.className = 'north';
     carDirectionData.direction = 'north';
@@ -26,12 +27,24 @@ function playGame(e) {
     car.className = "east";
     carDirectionData.direction = 'east';
   }
-  if (e.code === "Space"){
-    var intervalId = setInterval(() => {
+}
+
+document.addEventListener('keydown', carMove);
+
+function playGame(e){
+
+  if (e.code === "Space" && carDirectionData.start === false) {
+     intervalId = setInterval(() => {
+      carDirectionData.start = true;
       left += 16;
       car.style.left = left + 'px';
       carDirectionData.location.x = left;
-    }, 30)
+    }, 30);
+    console.log(carDirectionData.start)
+  } else if (e.code === 'Space' && carDirectionData.start === true){
+    clearInterval(intervalId);
+    console.log(carDirectionData.start)
+    carDirectionData.start = false;
   }
 }
 

@@ -40,10 +40,8 @@ function playGame(e){
       car.style.left = left + 'px';
       carDirectionData.location.x = left;
     }, 30);
-    console.log(carDirectionData.start)
   } else if (e.code === 'Space' && carDirectionData.start === true){
     clearInterval(intervalId);
-    console.log(carDirectionData.start)
     carDirectionData.start = false;
   }
 }

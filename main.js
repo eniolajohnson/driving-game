@@ -9,7 +9,8 @@ var carDirectionData = {
   start: false
 }
 
-var left = 0;
+var left = 8;
+var topNum = 8;
 
 var intervalId = null;
 
@@ -32,14 +33,30 @@ function carMove(e) {
 document.addEventListener('keydown', carMove);
 
 function playGame(e){
-
   if (e.code === "Space" && carDirectionData.start === false) {
      intervalId = setInterval(() => {
       carDirectionData.start = true;
-      left += 16;
-      car.style.left = left + 'px';
-      carDirectionData.location.x = left;
-    }, 30);
+      if (carDirectionData.direction === "east"){
+        left += 16;
+        car.style.left = left + 'px';
+        carDirectionData.location.x = left;
+      } else if (carDirectionData.direction === "south"){
+        topNum += 16;
+        car.style.top = topNum + 'px';
+        carDirectionData.location.y = topNum;
+        carDirectionData.location.x = left;
+      } else if (carDirectionData.direction === "north") {
+        topNum -= 16;
+        car.style.top = topNum + 'px';
+        carDirectionData.location.y = topNum;
+        carDirectionData.location.x = left;
+      } else if (carDirectionData.direction === "west") {
+        left -= 16;
+        car.style.left = left + 'px';
+        carDirectionData.location.y = topNum;
+        carDirectionData.location.x = left;
+      }
+    }, 50);
   } else if (e.code === 'Space' && carDirectionData.start === true){
     clearInterval(intervalId);
     carDirectionData.start = false;
